@@ -11,6 +11,7 @@ public class App {
 		System.out.println("VIVA EL PERU CARAJO");
 		int cantidad = 10;
 		String nombre1 = "carlos";
+		System.out.println("PERU CARAJO");
 	}
 
 }
