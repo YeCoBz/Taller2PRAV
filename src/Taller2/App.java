@@ -7,6 +7,7 @@ public class App {
 		String nombre = "cristian";
 		System.out.println("VIVA EL PERU CARAJO");
 		int cantidad = 10;
+		String nombre1 = "carlos";
 	}
 
 }
