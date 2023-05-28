@@ -9,6 +9,8 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		
+		System.out.println("gei el que lo lea, peruanos pe causa la conchatumare");
+		
 		Scanner scanner = new Scanner(System.in);
 		
 		int tamMaximo=900;
