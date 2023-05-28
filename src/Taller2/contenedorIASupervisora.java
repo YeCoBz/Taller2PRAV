@@ -1,14 +1,14 @@
 package Taller2;
 
-public class contenedorIASocial implements interfazContenedores{
-	
+public class contenedorIASupervisora implements interfazContenedores{
+
 	private int max;
 	private int cont;
-	private Ias[] IASocial;
+	private Ias[] IASupervisora;
 	
-	public contenedorIASocial(int max) {
+	public contenedorIASupervisora(int max) {
 		this.max = max;
-		IASocial = new Ias[max];
+		IASupervisora = new Ias[max];
 		cont = 0;
 	}
 
@@ -16,7 +16,7 @@ public class contenedorIASocial implements interfazContenedores{
 	public boolean agregarIa(Ias ia) {
 		// TODO Auto-generated method stub
 		if(cont < max) {
-			IASocial[cont]= ia;
+			IASupervisora[cont]= ia;
 			cont++;
 			return true;
 		}else {
@@ -30,27 +30,27 @@ public class contenedorIASocial implements interfazContenedores{
 		switch(elemento) {
 		case 0:
 			
-			return IASocial[i].getNombreIa();
+			return IASupervisora[i].getNombreIa();
 			
 		case 1:
 			
-			return IASocial[i].getLenguajeIa();
+			return IASupervisora[i].getLenguajeIa();
 		
 		case 3:
 			
-			return IASocial[i].getDebilidadIa();
+			return IASupervisora[i].getDebilidadIa();
 			
 		case 4:
 			
-			return IASocial[i].getPaisCreacionIa();
+			return IASupervisora[i].getPaisCreacionIa();
 			
 		case 5:
 			
-			return IASocial[i].getPresicionIa();
+			return IASupervisora[i].getPresicionIa();
 			
 		case 6:
 			
-			return IASocial[i].getTipoIa();
+			return IASupervisora[i].getTipoIa();
 		
 		default:
 			return "error";
@@ -62,15 +62,13 @@ public class contenedorIASocial implements interfazContenedores{
 		switch(elemento) {
 		case 2:
 			
-			return IASocial[i].getNivelAmenazaIa();
+			return IASupervisora[i].getNivelAmenazaIa();
 			
 		case 7:
 			
-			return IASocial[i].getIdCreadorIa();
+			return IASupervisora[i].getIdCreadorIa();
 		default:
 			return 0;
 	}
 	}
-	
-
 }
