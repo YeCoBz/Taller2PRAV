@@ -105,4 +105,9 @@ public class contenedorUsuarios {
 	public String getContrasena(int i){
 		return contenedorUsuarios[i].getContrasena();
 	}
+
+	public void entregarPorPaises() {
+		
+		
+	}
 }

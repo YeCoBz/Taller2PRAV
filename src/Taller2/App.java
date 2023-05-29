@@ -144,7 +144,138 @@ public class App {
 		}
 		
 		if(nombreFinal.equals("empanadasconchapalele")) {
+
 			System.out.println("------------Menu Admin------------------");
+			System.out.println("1) Ver todos los programadores");
+			System.out.println("2) Ver todas las IA");
+			System.out.println("3) Editar datos programador");
+			System.out.println("4) Editar datos IA");
+			System.out.println("5) Editar datos de Usuario");
+			System.out.println("6) Crear y visualizar debilidades");
+			System.out.println("7) Crear una IA, programador, País");
+			System.out.println("8) Dar estadísticas por países");
+			
+			String opcionMenuAdmin = scanner.nextLine();
+			
+			while(!opcionMenuAdmin.equals("1") && !opcionMenuAdmin.equals("2") && !opcionMenuAdmin.equals("3") &&
+					!opcionMenuAdmin.equals("4") && !opcionMenuAdmin.equals("5") && !opcionMenuAdmin.equals("6") &&
+					!opcionMenuAdmin.equals("7") && !opcionMenuAdmin.equals("8")) {
+				
+				System.out.println("------------Menu Admin------------------");
+				System.out.println("1) Ver todos los programadores");
+				System.out.println("2) Ver todas las IA");
+				System.out.println("3) Editar datos programador");
+				System.out.println("4) Editar datos IA");
+				System.out.println("5) Editar datos de Usuario");
+				System.out.println("6) Crear y visualizar debilidades");
+				System.out.println("7) Crear una IA, programador, País");
+				System.out.println("8) Dar estadísticas por países");
+				
+				opcionMenuAdmin = scanner.nextLine();
+			}
+			
+			switch (opcionMenuAdmin) {
+			
+			case "1":
+				
+				System.out.println("------------ Ver Por ------------------");
+				System.out.println("1) País");
+				System.out.println("2) Ciudad");
+				System.out.println("3) Años experiencia");
+				System.out.println("4) Cantidad de lenguajes");
+				System.out.println("5) Por ID");
+				
+				String opcionUno = scanner.nextLine();
+				
+				while(!opcionMenuAdmin.equals("1") && !opcionMenuAdmin.equals("2") && !opcionMenuAdmin.equals("3") &&
+						!opcionMenuAdmin.equals("4") && !opcionMenuAdmin.equals("5")) {
+					
+					System.out.println("------------ Ver Por ------------------");
+					System.out.println("1) País");
+					System.out.println("2) Ciudad");
+					System.out.println("3) Años experiencia");
+					System.out.println("4) Cantidad de lenguajes");
+					System.out.println("5) Por ID");
+					
+					opcionUno = scanner.nextLine();
+					
+				}
+				
+				switch (opcionUno) {
+				
+					case "1":
+						
+						mostrarProgramadoresPorPais(contenedorUsuarios);
+						break;
+						
+					case "2":
+						
+						mostrarProgramadoresPorCiudad();
+						break;
+						
+					case "3":
+						
+						mostrarProgramadoresPorAñosExperiencia();
+						break;
+						
+					case "4":
+						
+						mostrarProgramadoresPorCantLenguajes();
+						break;
+						
+					case "5":
+						
+						mostrarProgramadoresPorID();
+						break;
+
+				}
+				
+				break;
+				
+			case "2":
+				
+				opcionDosMenuUsuarios(contenedorUsuarios, nombreFinal);
+				
+				break;
+			
+			case "3":
+				
+				opcionTresMenuUsuarios(contenedorIas);
+				
+				break;
+
+			case "4":
+				
+				contenedorIas.mostrarIas();
+				
+				break;
+
+			case "5":
+				
+				opcionCincoMenuUsuarios(contenedorIas);
+					
+				break;
+				
+			case "6":
+				
+				opcionUnoMenuUsuarios(contenedorIas,contenedorProgramadores,contenedorDebilidades,idFinal);
+				
+				break;
+				
+			case "7":
+				
+				opcionDosMenuUsuarios(contenedorUsuarios, nombreFinal);
+				
+				break;
+
+			case "8":
+				
+				opcionTresMenuUsuarios(contenedorIas);
+				
+				break;
+			
+			}
+			
 		}else {
 			System.out.println("--------------Menu normal---------------");
 			System.out.println("Seleccione la opcion que desea realizar: ");
@@ -217,6 +348,37 @@ public class App {
 	}
 
 	
+	private static void mostrarProgramadoresPorID() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarProgramadoresPorCantLenguajes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarProgramadoresPorAñosExperiencia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarProgramadoresPorCiudad() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarProgramadoresPorPais(contenedorUsuarios contenedorUsuarios) {
+		
+		contenedorUsuarios.entregarPorPaises();
+		
+	}
+
+
 	private static void guardarIas(contenedorIAAutoMilitar contenedorMilitar,contenedorIASupervisora contenedorSupervisora,contenedorIATranshumanista contenedorTranshumanista,
 			contenedorIASocial contenedorSocial,contenedorIARealidadVirtual contenedorRv,contenedorIas contenedorIas) throws FileNotFoundException {
 		
