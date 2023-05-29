@@ -14,6 +14,8 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 		
 		int tamMaximo=900;
+		
+		
 		contenedorIas contenedorIas = new contenedorIas(tamañoFilas("IA.txt"));
 		contenedorIAAutoMilitar contenedorMilitar = new contenedorIAAutoMilitar(tamMaximo);
 		contenedorIASupervisora contenedorSupervisora = new contenedorIASupervisora(tamMaximo);
@@ -23,7 +25,10 @@ public class App {
 		contenedorUsuarios contenedorUsuarios = new contenedorUsuarios(tamañoFilas("Usuarios.txt"));
 		contenedorProgramadores contenedorProgramadores = new contenedorProgramadores(tamañoFilas("Programadores.txt"));
 		contenedorDebilidades contenedorDebilidades = new contenedorDebilidades(tamañoFilas("Debilidades.txt"));
-		
+		contenedorPaises contenedorPaisesRegiones = new contenedorPaises(tamañoFilas("Países.txt"));
+		agregarPaisesAContenedores(contenedorPaisesRegiones);
+
+		mostrarProgramadoresPorCiudad(contenedorPaisesRegiones,contenedorProgramadores);
 		
 		System.out.println("HOLAAAAAAAAAAAAAAAA "+random5());
 		
@@ -185,10 +190,10 @@ public class App {
 				System.out.println("4) Cantidad de lenguajes");
 				System.out.println("5) Por ID");
 				
-				String opcionUno = scanner.nextLine();
+				String opcionUnoAdmin = scanner.nextLine();
 				
-				while(!opcionMenuAdmin.equals("1") && !opcionMenuAdmin.equals("2") && !opcionMenuAdmin.equals("3") &&
-						!opcionMenuAdmin.equals("4") && !opcionMenuAdmin.equals("5")) {
+				while(!opcionUnoAdmin.equals("1") && !opcionUnoAdmin.equals("2") && !opcionUnoAdmin.equals("3") &&
+						!opcionUnoAdmin.equals("4") && !opcionUnoAdmin.equals("5")) {
 					
 					System.out.println("------------ Ver Por ------------------");
 					System.out.println("1) País");
@@ -197,20 +202,20 @@ public class App {
 					System.out.println("4) Cantidad de lenguajes");
 					System.out.println("5) Por ID");
 					
-					opcionUno = scanner.nextLine();
+					opcionUnoAdmin = scanner.nextLine();
 					
 				}
 				
-				switch (opcionUno) {
+				switch (opcionUnoAdmin) {
 				
 					case "1":
 						
-						mostrarProgramadoresPorPais(contenedorUsuarios);
+						mostrarProgramadoresPorPais(contenedorPaisesRegiones, contenedorProgramadores);
 						break;
 						
 					case "2":
 						
-						mostrarProgramadoresPorCiudad();
+						mostrarProgramadoresPorCiudad(contenedorPaisesRegiones, contenedorProgramadores);
 						break;
 						
 					case "3":
@@ -234,43 +239,124 @@ public class App {
 				
 			case "2":
 				
-				opcionDosMenuUsuarios(contenedorUsuarios, nombreFinal);
+				System.out.println("------------ Ver Por ------------------");
+				System.out.println("1) Tipo");
+				System.out.println("2) Nombre");
+				System.out.println("3) Presición");
+				System.out.println("4) País");
+				System.out.println("5) Nivel de peligrosidad");
+				
+				String opcionDosAdmin = scanner.nextLine();
+				
+				while(!opcionDosAdmin.equals("1") && !opcionDosAdmin.equals("2") && !opcionDosAdmin.equals("3") &&
+						!opcionDosAdmin.equals("4") && !opcionDosAdmin.equals("5")) {
+					
+					System.out.println("------------ Ver Por ------------------");
+					System.out.println("1) Tipo");
+					System.out.println("2) Nombre");
+					System.out.println("3) Presición");
+					System.out.println("4) País");
+					System.out.println("5) Nivel de peligrosidad");
+					
+					opcionDosAdmin = scanner.nextLine();
+					
+				}
+				
+				switch (opcionDosAdmin) {
+				
+				case "1":
+					
+					mostrarIAPorTipo();
+					
+					break;
+					
+				case "2":
+					
+					mostrarIAPorNombre();
+					break;
+					
+				case "3":
+					
+					mostrarIAPorPresicion();
+					break;
+					
+				case "4":
+					
+					mostrarIAPorPais();
+					break;
+					
+				case "5":
+					
+					mostrarIAPorNivelDePeligrosidad();
+					break;
+
+			}
+				
 				
 				break;
 			
 			case "3":
 				
-				opcionTresMenuUsuarios(contenedorIas);
+				editarDatosProgramador();
 				
 				break;
 
 			case "4":
 				
-				contenedorIas.mostrarIas();
+				editarDatosIA();
 				
 				break;
 
 			case "5":
 				
-				opcionCincoMenuUsuarios(contenedorIas);
+				editarDatosDeUsuarioAdmin();
 					
 				break;
 				
 			case "6":
 				
-				opcionUnoMenuUsuarios(contenedorIas,contenedorProgramadores,contenedorDebilidades,idFinal);
+				crearVisualizarDebilidades();
 				
 				break;
 				
 			case "7":
 				
-				opcionDosMenuUsuarios(contenedorUsuarios, nombreFinal);
+				crearIAProgramador();
 				
 				break;
 
 			case "8":
 				
-				opcionTresMenuUsuarios(contenedorIas);
+				System.out.println("------------ Ver Por ------------------");
+				System.out.println("1) Porcentaje de IA y programadores por países según el total");
+				System.out.println("2) Porcentaje de IA y programadores por Ciudad según el total ");
+				
+				String opcionOchoAdmin = scanner.nextLine();
+				
+				while(!opcionOchoAdmin.equals("1") && !opcionOchoAdmin.equals("2")) {
+					
+					System.out.println("------------ Ver Por ------------------");
+					System.out.println("1) Porcentaje de IA y programadores por países según el total");
+					System.out.println("2) Porcentaje de IA y programadores por Ciudad según el total ");
+					
+					opcionDosAdmin = scanner.nextLine();
+					
+				}
+				
+				switch (opcionOchoAdmin) {
+				
+					case "1":
+					
+						porcentajePorPais();
+						break;
+					
+					case "2":
+					
+						porcentajePorCiudad();
+						break;
+					
+				}
+				
 				
 				break;
 			
@@ -344,10 +430,96 @@ public class App {
 		
 		
 		
-		
 	}
 
 	
+	private static void agregarPaisesAContenedores(contenedorPaises contPaisesRegiones) throws IOException {
+		
+		Scanner scan = new Scanner(new File("Países.txt"));
+
+		while (scan.hasNextLine()) {
+			
+			String linea = scan.nextLine();
+			
+			Paises paisRegiones = new Paises(linea);
+			contPaisesRegiones.agregarPaises(paisRegiones);
+						
+		}
+		
+	}
+
+
+	private static void porcentajePorCiudad() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void porcentajePorPais() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void crearIAProgramador() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void crearVisualizarDebilidades() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void editarDatosDeUsuarioAdmin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void editarDatosIA() {
+		
+	}
+
+
+	private static void editarDatosProgramador() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarIAPorNivelDePeligrosidad() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarIAPorPais() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarIAPorPresicion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarIAPorNombre() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void mostrarIAPorTipo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	private static void mostrarProgramadoresPorID() {
 		// TODO Auto-generated method stub
 		
@@ -366,15 +538,34 @@ public class App {
 	}
 
 
-	private static void mostrarProgramadoresPorCiudad() {
-		// TODO Auto-generated method stub
+	private static void mostrarProgramadoresPorCiudad(contenedorPaises contenedorPaisesRegiones, contenedorProgramadores contenedorProgramadores) {
+		
+		String[] ciudades = contenedorProgramadores.getCiudades().split(",");
+		
+		for (int i = 0;i<contenedorProgramadores.getCont();i++) {
+
+			String ciudad = contenedorProgramadores.getCiudad(i);
+			System.out.println(ciudad+": ");
+			
+			contenedorProgramadores.getPorCiudad(ciudad);
+			
+		}
 		
 	}
 
 
-	private static void mostrarProgramadoresPorPais(contenedorUsuarios contenedorUsuarios) {
+	private static void mostrarProgramadoresPorPais(contenedorPaises contenedorPaisesRegiones, contenedorProgramadores contenedorProgramadores) {
 		
-		contenedorUsuarios.entregarPorPaises();
+		for (int i = 0;i<contenedorPaisesRegiones.getCont();i++) {
+			
+			String pais = contenedorPaisesRegiones.mostrarPaises(i).getPais();
+			System.out.println(pais+": ");
+			
+			contenedorProgramadores.getPorPais(pais);
+			
+		}
+		
+		
 		
 	}
 

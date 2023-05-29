@@ -4,18 +4,23 @@ public class contenedorProgramadores {
 	
 	private int max;
 	private int cont;
+	private int contCiudades;
 	private Programadores[] contenedorProgramadores;
+	private String[] ciudades;
 	
 	public contenedorProgramadores(int max) {
 		this.max = max;
 		contenedorProgramadores = new Programadores[max];
+		ciudades = new String[max];
 		cont = 0;
+		contCiudades = 0;
 	}
 	
 	public boolean agregarProgramador(Programadores progra) {
 		// TODO Auto-generated method stub
 		if(cont < max) {
 			contenedorProgramadores[cont]= progra;
+			agregarCiudades(progra);
 			cont++;
 			return true;
 		}else {
@@ -24,6 +29,26 @@ public class contenedorProgramadores {
 		
 	}
 	
+	private void agregarCiudades(Programadores progra) {
+		
+		String ciudad = progra.getCiudad();
+		int cont2 = 0;
+		
+		for (int i = 0; i<contCiudades;i++) {
+			
+			if (ciudades[i] != ciudad) {
+				cont2++;
+			} else { break;}
+			
+		}
+		
+		if (cont2 == contCiudades) {
+			
+			ciudades[contCiudades] = ciudad;
+			contCiudades++;
+		}
+	}
+
 	public boolean comprobarLenguaje(int id,String lenguaje) {
 		int p = 0;
 		boolean valor = false;
@@ -73,4 +98,50 @@ public class contenedorProgramadores {
 	public String getCiudad(int i) {
 		return contenedorProgramadores[i].getCiudad();
 	}
+
+	public void getPorPais(String pais) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			String paisProgramador = contenedorProgramadores[i].getCiudad();
+			
+			if (pais.equals(paisProgramador)) {
+				
+				System.out.println(contenedorProgramadores[i].getNombre());
+			}
+			
+			
+		}
+		
+	}
+	
+	public int getCont() {
+		return cont;
+	}
+
+	public void getPorCiudad(String ciudad) {
+		
+		for(int i = 0;i<contCiudades;i++) {
+			
+			if (contenedorProgramadores[i].getCiudad() == ciudad) {
+				
+				System.out.println(contenedorProgramadores[i].getNombre());
+			}
+		}
+		
+	}
+	
+	public String getCiudades() {
+		
+		String texto = "";
+		
+		for (int i = 0; i<contCiudades;i++) {
+			
+			texto += ciudades[i]+",";
+		}
+		
+		return texto;
+	}
+	
+	
 }
