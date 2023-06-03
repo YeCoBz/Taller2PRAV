@@ -1,5 +1,7 @@
 package Taller2;
 
+import java.util.Arrays;
+
 public class contenedorProgramadores {
 	
 	private int max;
@@ -101,13 +103,19 @@ public class contenedorProgramadores {
 
 	public void getPorPais(String pais) {
 		
+		String pais1 = pais;
+
+		
 		for(int i = 0;i<cont;i++) {
 			
-			String paisProgramador = contenedorProgramadores[i].getCiudad();
+			String paisProgramador = contenedorProgramadores[i].getPais();
 			
-			if (pais.equals(paisProgramador)) {
+			if (paisProgramador.equals(pais1)) {
 				
-				System.out.println(contenedorProgramadores[i].getNombre());
+				String nombre = contenedorProgramadores[i].getNombre();
+				
+				System.out.println(nombre);
+				
 			}
 			
 			
@@ -121,11 +129,15 @@ public class contenedorProgramadores {
 
 	public void getPorCiudad(String ciudad) {
 		
-		for(int i = 0;i<contCiudades;i++) {
+		for(int i = 0;i<cont;i++) {
 			
-			if (contenedorProgramadores[i].getCiudad() == ciudad) {
+			String ciudad1 = ciudad;
+			String programmerCity = contenedorProgramadores[i].getCiudad();
+			String nombre = contenedorProgramadores[i].getNombre();
+			
+			if (programmerCity.equals(ciudad1)) {
 				
-				System.out.println(contenedorProgramadores[i].getNombre());
+				System.out.println(nombre);
 			}
 		}
 		
@@ -142,6 +154,170 @@ public class contenedorProgramadores {
 		
 		return texto;
 	}
+
+
+	public void getForExpYears() {
+		
+		for(int i = 0;i<cont;i++) {
+			int years = contenedorProgramadores[i].getAñosExp();
+			String name = contenedorProgramadores[i].getNombre();
+			
+			System.out.println(name+": "+years+" años");
+		}
+		
+	}
+	
+	public void getAmountLenguage() {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			int amountLenguages = contenedorProgramadores[i].getALenguages();
+			String name = contenedorProgramadores[i].getNombre();
+			
+			System.out.println(name+": "+amountLenguages+" lenguajes");
+		}
+	}
+	
+	public void getByID() {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			int id = contenedorProgramadores[i].getId();
+			String name = contenedorProgramadores[i].getNombre();
+			
+			System.out.println(name+", ID: "+id);
+		}
+	}
+
+	public void setAddLenguage(String lenguageAdd, int idProgrammer) {
+		
+		
+		
+	}
+
+	public void setExpYears(int expYears, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setId(expYears);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setContryProgrammer(String contry, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setPais(contry);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+	}
+
+	public void setCityProgrammer(String city, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setCiudad(city);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setIDProgrammer(int newID, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setId(newID);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+	}
+
+	public void setNameProgrammer(String name, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setNombre(name);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setLastnameProgrammer(String lastName, int idProgrammer) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				contenedorProgramadores[i].setApellido(lastName);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public boolean getExistenceID(int newID) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == newID){
+				
+				return false;
+				
+			}
+			
+		}
+		return true;
+	}
+
+	public boolean getExistenciaid(int idProgrammer) {
+
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getId() == idProgrammer){
+				
+				return true;
+				
+			}
+			
+		}
+		return false;
+	}
+	
+	
 	
 	
 }

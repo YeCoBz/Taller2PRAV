@@ -164,4 +164,115 @@ public class contenedorIas {
 	        j++;     
 	   }
 	}
+
+	public void getIAByName() {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			String name = contenedorIas[i].getNombreIa();
+			
+			System.out.println("- "+name);
+		}
+
+	}
+
+	public void getByPrecision() {
+
+		for(int i = 0;i<cont;i++) {
+			
+			String name = contenedorIas[i].getNombreIa();
+			
+			System.out.println("- "+name+": "+contenedorIas[i].getPresicionIa());
+		}
+		
+	}
+
+	public void getByCountry(String country) {
+	
+		for(int i = 0;i<cont;i++) {
+			
+			String countryIA = contenedorIas[i].getPaisCreacionIa();
+			
+			if (countryIA.equals(country)) {
+				
+				String name = contenedorIas[i].getNombreIa();
+				
+				System.out.println(name);
+				
+			}
+			
+			
+		}
+		
+	}
+
+	public void getByDangerous() {
+
+	for(int i = 0;i<cont;i++) {
+			
+			String name = contenedorIas[i].getNombreIa();
+			
+			System.out.println("- "+name+": "+contenedorIas[i].getNivelAmenazaIa());
+		}
+		
+	}
+
+	public void setNewNameIA(String newNameIA, String nameIA) {
+
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setNombreIa(newNameIA);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setDangerLevel(int dangerLevel, String nameIA) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setNivelAmenazaIa(dangerLevel);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setNewWeaknessIA(String weaknessIA, String nameIA) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setDebilidadIa(weaknessIA);
+				
+				System.out.println("Cambio realizado :");
+				
+			}
+			
+		}
+		
+	}
+
+	public boolean getExistenciaid(String nameIA) {
+
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){		
+				return true;
+			}
+		}
+		return false;
+	}
 }

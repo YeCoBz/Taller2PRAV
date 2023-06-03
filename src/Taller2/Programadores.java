@@ -72,5 +72,15 @@ public class Programadores {
 	public void setAñosExp(int añosExp) {
 		this.añosExp = añosExp;
 	}
+
+	public int getALenguages() {
+		
+		return lenguajes.length;
+	}
+	
+	public void addLenguage(String lenguage) {
+		
+		
+	}
 	
 }

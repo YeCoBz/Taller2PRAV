@@ -71,4 +71,13 @@ public class contenedorIASupervisora implements interfazContenedores{
 			return 0;
 	}
 	}
+	public void getIAs() {
+		
+		System.out.println("IA supervisora: ");
+		System.out.println("");
+		for(int i = 0;i<cont;i++) {
+			System.out.println("- "+IASupervisora[i].getNombreIa());
+		}
+		System.out.println("");
+	}
 }

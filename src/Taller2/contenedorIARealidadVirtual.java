@@ -71,4 +71,13 @@ public class contenedorIARealidadVirtual implements interfazContenedores{
 			return 0;
 	}
 	}
+	public void getIAs() {
+		
+		System.out.println("IA de realidad virtual: ");
+		System.out.println("");
+		for(int i = 0;i<cont;i++) {
+			System.out.println("- "+IARealidadVirtual[i].getNombreIa());
+		}
+		System.out.println("");
+	}
 }

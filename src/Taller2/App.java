@@ -32,6 +32,8 @@ public class App {
 		
 		System.out.println("HOLAAAAAAAAAAAAAAAA "+random5());
 		
+		System.out.println("sd");
+		
 		agregarDebilidades(contenedorDebilidades);
 		guardarIas(contenedorMilitar,contenedorSupervisora,contenedorTranshumanista,contenedorSocial,contenedorRv,contenedorIas);
 		Ias nombre1 = new Ias(null, null, null, null, null, null, 2, 0);
@@ -45,6 +47,7 @@ public class App {
 		System.out.println("Que desea realizar: Iniciar sesion(I) o registrarse(R)");
 		String opcionIngresada = scanner.nextLine().toUpperCase();
 		String nombreFinal;
+		
 		int idFinal;
 		while(!opcionIngresada.equals("I") && !opcionIngresada.equals("R")) {
 			System.out.println("Opcion no valida, ingrese I=Iniciar sesion o R=Registrarse");
@@ -159,6 +162,8 @@ public class App {
 			System.out.println("6) Crear y visualizar debilidades");
 			System.out.println("7) Crear una IA, programador, País");
 			System.out.println("8) Dar estadísticas por países");
+			System.out.println("\n");
+			System.out.println("Ingrese su opción: ");
 			
 			String opcionMenuAdmin = scanner.nextLine();
 			
@@ -175,6 +180,8 @@ public class App {
 				System.out.println("6) Crear y visualizar debilidades");
 				System.out.println("7) Crear una IA, programador, País");
 				System.out.println("8) Dar estadísticas por países");
+				System.out.println("\n");
+				System.out.println("Ingrese su opción: ");
 				
 				opcionMenuAdmin = scanner.nextLine();
 			}
@@ -189,6 +196,8 @@ public class App {
 				System.out.println("3) Años experiencia");
 				System.out.println("4) Cantidad de lenguajes");
 				System.out.println("5) Por ID");
+				System.out.println("\n");
+				System.out.println("Ingrese su opción: ");
 				
 				String opcionUnoAdmin = scanner.nextLine();
 				
@@ -201,6 +210,8 @@ public class App {
 					System.out.println("3) Años experiencia");
 					System.out.println("4) Cantidad de lenguajes");
 					System.out.println("5) Por ID");
+					System.out.println("\n");
+					System.out.println("Ingrese su opción: ");
 					
 					opcionUnoAdmin = scanner.nextLine();
 					
@@ -220,17 +231,17 @@ public class App {
 						
 					case "3":
 						
-						mostrarProgramadoresPorAñosExperiencia();
+						contenedorProgramadores.getForExpYears();
 						break;
 						
 					case "4":
 						
-						mostrarProgramadoresPorCantLenguajes();
+						contenedorProgramadores.getAmountLenguage();
 						break;
 						
 					case "5":
 						
-						mostrarProgramadoresPorID();
+						contenedorProgramadores.getByID();
 						break;
 
 				}
@@ -245,6 +256,8 @@ public class App {
 				System.out.println("3) Presición");
 				System.out.println("4) País");
 				System.out.println("5) Nivel de peligrosidad");
+				System.out.println("\n");
+				System.out.println("Ingrese su opción: ");
 				
 				String opcionDosAdmin = scanner.nextLine();
 				
@@ -257,6 +270,8 @@ public class App {
 					System.out.println("3) Presición");
 					System.out.println("4) País");
 					System.out.println("5) Nivel de peligrosidad");
+					System.out.println("\n");
+					System.out.println("Ingrese su opción: ");
 					
 					opcionDosAdmin = scanner.nextLine();
 					
@@ -266,28 +281,28 @@ public class App {
 				
 				case "1":
 					
-					mostrarIAPorTipo();
+					mostrarIAPorTipo(contenedorMilitar,contenedorSupervisora,contenedorTranshumanista,contenedorSocial,contenedorRv);
 					
 					break;
 					
 				case "2":
 					
-					mostrarIAPorNombre();
+					contenedorIas.getIAByName();
 					break;
 					
 				case "3":
 					
-					mostrarIAPorPresicion();
+					contenedorIas.getByPrecision();
 					break;
 					
 				case "4":
 					
-					mostrarIAPorPais();
+					mostrarIAPorPais(contenedorPaisesRegiones, contenedorIas);
 					break;
 					
 				case "5":
 					
-					mostrarIAPorNivelDePeligrosidad();
+					contenedorIas.getByDangerous();
 					break;
 
 			}
@@ -297,13 +312,144 @@ public class App {
 			
 			case "3":
 				
-				editarDatosProgramador();
+				System.out.println("------------ Editar ------------------");
+				System.out.println("1) Agregar lenguaje");
+				System.out.println("2) Años de experiencia");
+				System.out.println("3) Modifica país");
+				System.out.println("4) Ciudad");
+				System.out.println("5) id");
+				System.out.println("6) Nombre");
+				System.out.println("7) Apellido");
+				System.out.println("\n");
+				System.out.println("Ingrese su opción: ");
 				
+				String thirdOptionAdmin = scanner.nextLine();
+				
+				while(!thirdOptionAdmin.equals("1") && !thirdOptionAdmin.equals("2") && !thirdOptionAdmin.equals("3") &&
+						!thirdOptionAdmin.equals("4") && !thirdOptionAdmin.equals("5")  && !thirdOptionAdmin.equals("6")
+						 && !thirdOptionAdmin.equals("7")) {
+					
+					System.out.println("------------ Editar ------------------");
+					System.out.println("1) Agregar lenguaje");
+					System.out.println("2) Años de experiencia");
+					System.out.println("3) Modifica país");
+					System.out.println("4) Ciudad");
+					System.out.println("5) id");
+					System.out.println("6) Nombre");
+					System.out.println("7) Apellido");
+					System.out.println("\n");
+					System.out.println("Ingrese su opción: ");
+					
+					thirdOptionAdmin = scanner.nextLine();
+					
+				}
+				
+				switch (thirdOptionAdmin) {
+					
+					case "1":
+						
+						subAddLenguages(contenedorProgramadores);
+						break;
+						
+					case "2":
+						
+						subChangeExpYears(contenedorProgramadores);
+						
+						break;
+					case "3":
+						
+						subChangeCountry(contenedorProgramadores);
+						break;
+						
+					case "4":
+						
+						subChangeCity(contenedorProgramadores);
+						break;
+						
+					case "5":
+						
+						subChangeID(contenedorProgramadores);
+						break;
+						
+					case "6":
+						
+						subChangeName(contenedorProgramadores);
+						break;
+						
+					case "7":
+						
+						subChangeLastName(contenedorProgramadores);
+						break;
+						
+				}
 				break;
 
 			case "4":
 				
-				editarDatosIA();
+				System.out.println("------------ Editar ------------------");
+				System.out.println("1) Nombre");
+				System.out.println("2) Nivel de peligrosidad");
+				System.out.println("3) Debilidad");
+				System.out.println("4) Precisión");
+				System.out.println("5) País");
+				System.out.println("6) Id Creador");
+				System.out.println("\n");
+				System.out.println("Ingrese su opción: ");
+				
+				String fourOptionAdmin = scanner.nextLine();
+				
+				while(!fourOptionAdmin.equals("1") && !fourOptionAdmin.equals("2") && !fourOptionAdmin.equals("3") &&
+						!fourOptionAdmin.equals("4") && !fourOptionAdmin.equals("5")  && !fourOptionAdmin.equals("6")) {
+					
+					System.out.println("ERROR, NO EXISTE ESA OPCION");
+					System.out.println("\n");
+					System.out.println("------------ Editar ------------------");
+					System.out.println("1) Nombre");
+					System.out.println("2) Nivel de peligrosidad");
+					System.out.println("3) Debilidad");
+					System.out.println("4) Precisión");
+					System.out.println("5) País");
+					System.out.println("6) Id Creador");
+					System.out.println("\n");
+					System.out.println("Ingrese su opción: ");
+					
+					fourOptionAdmin = scanner.nextLine();
+					
+				}
+				
+				switch (fourOptionAdmin) {
+					
+					case "1":
+						
+						subNameIA(contenedorIas);
+						break;
+						
+					case "2":
+						
+						subDangerLevelIA(contenedorIas);
+						
+						break;
+					case "3":
+						
+						subWeaknessIA(contenedorIas);
+						break;
+						
+					case "4":
+						
+						subPrecisionIA(contenedorIas);
+						break;
+						
+					case "5":
+						
+						subCountryIA(contenedorIas);
+						break;
+						
+					case "6":
+						
+						subIDCreator(contenedorIas);
+						break;
+						
+				}
 				
 				break;
 
@@ -422,17 +568,270 @@ public class App {
 			
 		}
 		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	}
 
 	
+	private static void subIDCreator(contenedorIas contenedorIas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void subPrecisionIA(contenedorIas contenedorIas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void subCountryIA(contenedorIas contenedorIas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private static void subWeaknessIA(contenedorIas contenedorIas) {
+		
+		Scanner IA = new Scanner(System.in);
+		System.out.println("Ingrese el nombre de la IA: ");
+		String nameIA = IA.nextLine();
+		boolean existenceIA = contenedorIas.getExistenciaid(nameIA);
+		
+		while (existenceIA == false) {
+			
+			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
+			nameIA = IA.nextLine();
+			existenceIA = contenedorIas.getExistenciaid(nameIA);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese la nueva debilidad: ");
+		String weaknessIA = IA.nextLine();
+		
+		contenedorIas.setNewWeaknessIA(weaknessIA,nameIA);
+		
+		IA.close();
+	}
+
+
+	private static void subDangerLevelIA(contenedorIas contenedorIas) {
+		
+		Scanner IA = new Scanner(System.in);
+		System.out.println("Ingrese el nombre de la IA: ");
+		String nameIA = IA.nextLine();
+		boolean existenceIA = contenedorIas.getExistenciaid(nameIA);
+		
+		while (existenceIA == false) {
+			
+			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
+			nameIA = IA.nextLine();
+			existenceIA = contenedorIas.getExistenciaid(nameIA);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el nuevo nivel del peligrosidad: ");
+		int dangerLevel = IA.nextInt();
+		
+		contenedorIas.setDangerLevel(dangerLevel,nameIA);
+		
+		IA.close();
+		
+	}
+
+	private static void subNameIA(contenedorIas contenedorIas) {
+		
+		Scanner IA = new Scanner(System.in);
+		System.out.println("Ingrese el nombre de la IA: ");
+		String nameIA = IA.nextLine();
+		boolean existenceIA = contenedorIas.getExistenciaid(nameIA);
+		
+		while (existenceIA == false) {
+			
+			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
+			nameIA = IA.nextLine();
+			existenceIA = contenedorIas.getExistenciaid(nameIA);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el nuevo nombre de la IA: ");
+		String newNameIA = IA.nextLine();
+		
+		contenedorIas.setNewNameIA(newNameIA,nameIA);
+		
+		IA.close();
+		
+	}
+
+
+	private static void subChangeLastName(contenedorProgramadores contenedorProgramadores) {
+		
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el nuevo apellido: ");
+		String lastName = ID.nextLine();
+		
+		contenedorProgramadores.setLastnameProgrammer(lastName,idProgrammer);
+		
+		ID.close();
+		
+	}
+
+	private static void subChangeName(contenedorProgramadores contenedorProgramadores) {
+		
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el nuevo nombre: ");
+		String name = ID.nextLine();
+		
+		contenedorProgramadores.setNameProgrammer(name,idProgrammer);
+		
+		ID.close();
+		
+	}
+
+	private static void subChangeID(contenedorProgramadores contenedorProgramadores) {
+		
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceIDprogrammer = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceIDprogrammer == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceIDprogrammer = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese la nueva id: ");
+		int newID = ID.nextInt();
+		
+		boolean existenceID = contenedorProgramadores.getExistenceID(newID);
+		
+		while (existenceID == false) {
+			
+			System.out.println("Esa id ya existe, por favor ingrese un id diferente: ");
+			newID = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenceID(newID);
+		}
+		
+		contenedorProgramadores.setIDProgrammer(newID,idProgrammer);
+		
+		ID.close();	
+		
+	}
+
+	private static void subChangeCity(contenedorProgramadores contenedorProgramadores) {
+	
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese la nueva ciudad: ");
+		String city = ID.nextLine();
+		
+		contenedorProgramadores.setCityProgrammer(city,idProgrammer);
+		
+		ID.close();
+		
+	}
+
+	private static void subChangeCountry(contenedorProgramadores contenedorProgramadores) {
+		
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el nuevo país: ");
+		String contry = ID.nextLine();
+		
+		contenedorProgramadores.setContryProgrammer(contry,idProgrammer);
+		
+		ID.close();
+		
+	}
+
+	private static void subChangeExpYears(contenedorProgramadores contenedorProgramadores) {
+
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese los años de experiencia: ");
+		int expYears = ID.nextInt();
+		
+		contenedorProgramadores.setExpYears(expYears,idProgrammer);
+		
+		ID.close();
+		
+	}
+
+	private static void subAddLenguages(contenedorProgramadores contenedorProgramadores) {
+		
+		Scanner ID = new Scanner(System.in);
+		System.out.println("Ingrese ID del programador: ");
+		int idProgrammer = ID.nextInt();
+		
+		boolean existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		
+		while (existenceID == false) {
+			
+			System.out.println("No se ha encontrado al programador, por favor vuelve a ingresar la id: ");
+			idProgrammer = ID.nextInt();
+			existenceID = contenedorProgramadores.getExistenciaid(idProgrammer);
+		}
+		System.out.println("\n");
+		System.out.println("Ingrese el lenguaje que desea agregar: ");
+		String lenguageAdd = ID.nextLine();
+		
+		contenedorProgramadores.setAddLenguage(lenguageAdd,idProgrammer);
+		
+		ID.close();
+		
+	}
+
 	private static void agregarPaisesAContenedores(contenedorPaises contPaisesRegiones) throws IOException {
 		
 		Scanner scan = new Scanner(new File("Países.txt"));
@@ -447,7 +846,6 @@ public class App {
 		}
 		
 	}
-
 
 	private static void porcentajePorCiudad() {
 		// TODO Auto-generated method stub
@@ -496,58 +894,44 @@ public class App {
 	}
 
 
-	private static void mostrarIAPorPais() {
-		// TODO Auto-generated method stub
+	private static void mostrarIAPorPais(contenedorPaises contenedorPaisesRegiones,contenedorIas contenedorIas) {
+		
+	for (int i = 0;i<contenedorPaisesRegiones.getCont();i++) {
+			
+			String pais = contenedorPaisesRegiones.mostrarPaises(i).getPais();
+			System.out.println(pais+": ");
+			
+			contenedorIas.getByCountry(pais);
+			
+		}
 		
 	}
 
 
-	private static void mostrarIAPorPresicion() {
-		// TODO Auto-generated method stub
+	private static void mostrarIAPorTipo(contenedorIAAutoMilitar contenedorMilitar, contenedorIASupervisora contenedorSupervisora,
+			contenedorIATranshumanista contenedorTranshumanista, contenedorIASocial contenedorSocial, contenedorIARealidadVirtual contenedorRv) {
 		
+		contenedorMilitar.getIAs();
+		contenedorSupervisora.getIAs();
+		contenedorTranshumanista.getIAs();
+		contenedorSocial.getIAs();
+		contenedorRv.getIAs();
 	}
 
-
-	private static void mostrarIAPorNombre() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void mostrarIAPorTipo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void mostrarProgramadoresPorID() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void mostrarProgramadoresPorCantLenguajes() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void mostrarProgramadoresPorAñosExperiencia() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+ 
 	private static void mostrarProgramadoresPorCiudad(contenedorPaises contenedorPaisesRegiones, contenedorProgramadores contenedorProgramadores) {
 		
+		/*
+		 * 
+		 */
 		String[] ciudades = contenedorProgramadores.getCiudades().split(",");
 		
-		for (int i = 0;i<contenedorProgramadores.getCont();i++) {
-
-			String ciudad = contenedorProgramadores.getCiudad(i);
-			System.out.println(ciudad+": ");
+		for (int i = 0;i<ciudades.length;i++) {
 			
-			contenedorProgramadores.getPorCiudad(ciudad);
+			String currentCity = ciudades[i];
+			System.out.println(currentCity+": ");
+			
+			contenedorProgramadores.getPorCiudad(currentCity);		
 			
 		}
 		

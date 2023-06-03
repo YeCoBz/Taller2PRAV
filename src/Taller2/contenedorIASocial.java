@@ -72,5 +72,13 @@ public class contenedorIASocial implements interfazContenedores{
 	}
 	}
 	
-
+	public void getIAs() {
+		
+		System.out.println("IA social: ");
+		System.out.println("");
+		for(int i = 0;i<cont;i++) {
+			System.out.println("- "+IASocial[i].getNombreIa());
+		}
+		System.out.println("");
+	}
 }

@@ -78,4 +78,14 @@ public class contenedorIAAutoMilitar implements interfazContenedores {
 	public int getCont() {
 		return cont;
 	}
+
+	public void getIAs() {
+		
+		System.out.println("IA autónoma militar: ");
+		System.out.println("");
+		for(int i = 0;i<cont;i++) {
+			System.out.println("- "+IAAutoMilitar[i].getNombreIa());
+		}
+		System.out.println("");
+	}
 }
