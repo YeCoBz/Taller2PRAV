@@ -275,4 +275,52 @@ public class contenedorIas {
 		}
 		return false;
 	}
+
+	public void setNewCountryIA(String country, String nameIA) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setPaisCreacionIa(country);
+				
+				System.out.println("Cambio realizado :");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setNewPrecisionIA(String precision, String nameIA) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setPresicionIa(precision);;
+				
+				System.out.println("Cambio realizado :");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setNewIDCreatorIA(int newIDCreator, String nameIA) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorIas[i].getNombreIa().equals(nameIA)){
+				
+				contenedorIas[i].setIdCreadorIa(newIDCreator);;
+				
+				System.out.println("Cambio realizado :");
+				
+			}
+			
+		}
+		
+	}
 }

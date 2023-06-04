@@ -1,7 +1,5 @@
 package Taller2;
 
-import java.util.Arrays;
-
 public class Paises {
 	
 	String pais;
@@ -48,10 +46,6 @@ public class Paises {
 		this.cont = cont;
 	}
 
-	@Override
-	public String toString() {
-		return "Paises [pais=" + pais + ", regiones=" + Arrays.toString(regiones) + ", cont=" + cont + "]";
-	}
 	
 	
 	

@@ -13,7 +13,7 @@ public class contenedorDebilidades {
 	}
 	
 	public boolean agregarDebilidad(debilidad debilidad) {
-		// TODO Auto-generated method stub
+		
 		if(cont < max) {
 			contenedorDebilidades[cont]= debilidad;
 			cont++;
@@ -35,5 +35,22 @@ public class contenedorDebilidades {
 			}
 			j++;
 		}
+	}
+
+	public void seeAllWaknesses() {
+		
+		System.out.println("------------ Debilidades ------------------");
+		System.out.println("\n");
+		
+		for(int i = 0;i<cont;i++) {
+			
+			String w = contenedorDebilidades[i].getDebilidad();
+			int n = contenedorDebilidades[i].getNivelAmenaza();
+			
+			System.out.println(w+", "+n);
+			
+			
+		}
+		
 	}
 }

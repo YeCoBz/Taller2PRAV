@@ -110,4 +110,65 @@ public class contenedorUsuarios {
 		
 		
 	}
+
+	public boolean getExistenciaid(int idUser) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorUsuarios[i].getIdProgramador() == idUser){
+				
+				return false;
+				
+			}
+			
+		}
+		return true;
+	}
+
+	public void setNewPasswordUser(String password, int idUser) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorUsuarios[i].getIdProgramador() == idUser){
+				
+				contenedorUsuarios[i].setContrasena(password);;
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setNewNameUser(String name, int idUser) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorUsuarios[i].getIdProgramador() == idUser){
+				
+				contenedorUsuarios[i].setNombreUsuario(name);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+		
+	}
+
+	public void setNewidUser(int id, int idUser) {
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorUsuarios[i].getIdProgramador() == idUser){
+				
+				contenedorUsuarios[i].setIdProgramador(id);
+				
+				System.out.println("Cambio realizado :)");
+				
+			}
+			
+		}
+	}
 }

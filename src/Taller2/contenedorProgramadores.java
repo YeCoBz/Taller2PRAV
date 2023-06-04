@@ -1,6 +1,5 @@
 package Taller2;
 
-import java.util.Arrays;
 
 public class contenedorProgramadores {
 	
@@ -316,8 +315,38 @@ public class contenedorProgramadores {
 		}
 		return false;
 	}
+
+	public int getByCountry(String country) {
+		
+		int c = 0;
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getPais().equals(country)){
+				c++;
+			}
+		}
+		return c;
+
+	}
 	
-	
-	
-	
+	public String[] getListCities() {
+		return ciudades;
+	}
+
+	public int prByCities(String city) {
+		
+		int c = 0;
+		
+		for(int i = 0;i<cont;i++) {
+			
+			if(contenedorProgramadores[i].getPais().equals(city)){
+				c++;
+			}
+		}
+		return c;
+
+	}
+
+
 }
