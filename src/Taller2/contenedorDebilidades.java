@@ -53,4 +53,10 @@ public class contenedorDebilidades {
 		}
 		
 	}
+	public String devolverDebilidad(int i) {
+		return contenedorDebilidades[i].getDebilidad();
+	}
+	public int getNivelDebilidad(int i) {
+		return contenedorDebilidades[i].getNivelAmenaza();
+	}
 }

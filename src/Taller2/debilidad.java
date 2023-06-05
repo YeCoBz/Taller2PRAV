@@ -7,6 +7,7 @@ public class debilidad {
 	public String getDebilidad() {
 		return debilidad;
 	}
+	
 	public void setDebilidad(String debilidad) {
 		this.debilidad = debilidad;
 	}

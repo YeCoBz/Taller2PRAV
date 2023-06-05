@@ -9,8 +9,6 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println("gei el que lo lea, peruanos pe causa la conchatumare");
-		
 		Scanner scanner = new Scanner(System.in);
 		
 		int tamMaximo=900;
@@ -29,10 +27,6 @@ public class App {
 		agregarPaisesAContenedores(contenedorPaisesRegiones);
 
 		mostrarProgramadoresPorCiudad(contenedorPaisesRegiones,contenedorProgramadores);
-		
-		System.out.println("HOLAAAAAAAAAAAAAAAA "+random5());
-		
-		System.out.println("sd");
 		
 		agregarDebilidades(contenedorDebilidades);
 		guardarIas(contenedorMilitar,contenedorSupervisora,contenedorTranshumanista,contenedorSocial,contenedorRv,contenedorIas);
@@ -382,6 +376,7 @@ public class App {
 						break;
 						
 				}
+				guardarDatosProgramadores("Programadores.txt",tamañoFilas("Programadores.txt"),contenedorProgramadores );
 				break;
 
 			case "4":
@@ -450,7 +445,7 @@ public class App {
 						break;
 						
 				}
-				
+				guardarDatosIas("IA.txt",tamañoFilas("IA.txt"),contenedorIas);
 				break;
 
 			case "5":
@@ -482,21 +477,24 @@ public class App {
 					case "1":
 						
 						subNameUser(contenedorUsuarios);
+						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 					case "2":
 						
 						subPasswordUser(contenedorUsuarios);
+						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 					case "3":
 						
 						subidUser(contenedorUsuarios);
+						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 				}
 				
-					
+				guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 				break;
 				
 			case "6":
@@ -536,6 +534,7 @@ public class App {
 						
 				}
 				
+				guardarDebilidades("Debilidades.txt",tamañoFilas("Debilidades.txt"),contenedorDebilidades);
 				break;
 				
 			case "7":
@@ -849,7 +848,7 @@ public class App {
 		int idUser = User.nextInt();
 		boolean existenceUser = contenedorUsuarios.getExistenciaid(idUser);
 		
-		while (existenceUser == false) {
+		while (existenceUser == true) {
 			
 			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
 			idUser = User.nextInt();
@@ -876,7 +875,7 @@ public class App {
 		int idUser = User.nextInt();
 		boolean existenceUser = contenedorUsuarios.getExistenciaid(idUser);
 		
-		while (existenceUser == false) {
+		while (existenceUser == true) {
 			
 			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
 			idUser = User.nextInt();
@@ -902,7 +901,7 @@ public class App {
 		int idUser = User.nextInt();
 		boolean existenceUser = contenedorUsuarios.getExistenciaid(idUser);
 		
-		while (existenceUser == false) {
+		while (existenceUser == true) {
 			
 			System.out.println("No se ha encontrado el nombre de la IA, por favor ingreselo nuevamente: ");
 			idUser = User.nextInt();
@@ -1518,7 +1517,7 @@ public class App {
 	}
 	//Genera un numero random de 5 digitos
 	public static int random5() {
-		int p = random(0,9)*10000;
+		int p = random(1,9)*10000;
 		int s = random(0,9)*1000;
 		int t = random(0,9)*100;
 		int c = random(0,9)*10;
@@ -1558,6 +1557,23 @@ public class App {
 		}
 	}
 	
+	public static void guardarDebilidades(String nombreArchivo,int filas,contenedorDebilidades contenedorDebilidades ) throws IOException {
+		FileWriter escribir;
+		PrintWriter linea;
+		File archivo = new File(nombreArchivo);
+		
+		escribir = new FileWriter(archivo,true);
+		linea = new PrintWriter(escribir);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
+		bw.write("");
+		for(int i=0;i<filas;i++) {
+			linea.println(contenedorDebilidades.devolverDebilidad(i)+", "+contenedorDebilidades.getNivelDebilidad(i));
+		}
+
+		linea.close();
+		escribir.close();
+		bw.close();
+	}
 	
 	public static void guardarDatosIas(String nombreArchivo,int filas,contenedorIas contenedorIas )throws IOException {
 		FileWriter escribir;
