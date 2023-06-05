@@ -9,6 +9,7 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		
+		System.out.println("Hola");
 		Scanner scanner = new Scanner(System.in);
 		
 		int tamMaximo=900;
@@ -477,24 +478,21 @@ public class App {
 					case "1":
 						
 						subNameUser(contenedorUsuarios);
-						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 					case "2":
 						
 						subPasswordUser(contenedorUsuarios);
-						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 					case "3":
 						
 						subidUser(contenedorUsuarios);
-						guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
 						break;
 						
 				}
 				
-				guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt"),contenedorUsuarios);
+				guardarDatosUsuarios("Usuarios.txt",tamañoFilas("Usuarios.txt")+1,contenedorUsuarios);
 				break;
 				
 			case "6":
